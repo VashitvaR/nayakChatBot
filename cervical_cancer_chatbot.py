@@ -1,6 +1,5 @@
 import streamlit as st
 import random
-import string
 import nltk
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
