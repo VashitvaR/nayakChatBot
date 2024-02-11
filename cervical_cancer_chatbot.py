@@ -8,7 +8,7 @@ Original file is located at
 """
 
 #description: This is a 'smart' chatbot program
-
+pip install nltk
 #Import the libraries
 
 
