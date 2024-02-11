@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.colored_header import colored_header
 from streamlit_extras.add_vertical_space import add_vertical_space
 import random
 import string
@@ -12,7 +11,7 @@ warnings.filterwarnings('ignore')
 
 # Sidebar contents.
 with st.sidebar:
-    colored_header(label='🎗️ Welcome to CervicalShield Chatbot 🤖', description="Here to provide information and support", color_name='blue-30')
+    st.markdown('<h1 style="color:blue;">🎗️ Welcome to CervicalShield Chatbot 🤖! Here to provide information and support</h1>', unsafe_allow_html=True)
     st.header('Cervical Cancer Chatbot')
 
     st.markdown('''
