@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.add_vertical_space import add_vertical_space
 import random
 import string
 import nltk
@@ -26,8 +25,7 @@ with st.sidebar:
     
     💡 Note: CervicalShield is not a substitute for professional medical advice. Please consult qualified healthcare professionals for specific concerns.
     ''')
-    add_vertical_space(5)
-
+    st.markdown('<style>div.stNamedPlaceholder>div{margin-top:20px;}</style>', unsafe_allow_html=True)
 
 # Download the punkt package
 nltk.download('punkt', quiet=True)
