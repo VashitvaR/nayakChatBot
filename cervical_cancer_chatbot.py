@@ -55,7 +55,7 @@ def index_sort(list_var):
 # Load the dataset
 import json
 
-with open('/dataset.json', 'r') as file:
+with open('/workspaces/cervicalShieldChatBot/dataset.json', 'r') as file:
     dataset = json.load(file)
 
 def bot_response(user_input):
