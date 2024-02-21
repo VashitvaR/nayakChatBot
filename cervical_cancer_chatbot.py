@@ -8,21 +8,32 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Sidebar contents.
+import streamlit as st
+import torch
+from transformers import BertTokenizer, BertForQuestionAnswering
+
+# Load the BERT model and tokenizer
 with st.sidebar:
-    st.markdown('<h1 style="color:blue;">🎗️ Welcome to CervicalShield Chatbot 🤖! Here to provide information and support</h1>', unsafe_allow_html=True)
-    st.header('Cervical Cancer Chatbot')
+    st.markdown('<h1 style="color:blue;">🛡️ Welcome to Shield Bot by Nayak! 🤖</h1>', unsafe_allow_html=True)
+    st.header('About Nayak')
 
     st.markdown('''
-    ## About CervicalShield
-    CervicalShield Chatbot is an AI-powered assistant designed to provide information and support regarding cervical cancer and women's health.
+    ## Empowering Reporting and Insights
+
+    Nayak is a cutting-edge reporting and insights platform designed to empower individuals, particularly victims, to file reports openly or anonymously. The platform is committed to user convenience and offers morning and night modes.
+
+    🚀 Once a report is submitted, Nayak provides authorized authorities with a comprehensive dashboard. Reports are intelligently categorized into open, in-progress, and closed statuses, ensuring efficient case management.
+
+    ### AI-Powered Efficiency
+    - Nayak seamlessly integrates AI to manage the influx of reports effectively.
+    - The AI is adept at generating precise answers to specific questions posed by authorities, streamlining the information processing workflow.
+
+    ### API Gateway for Data Insights
+    - Nayak offers an API gateway, allowing authorities to access valuable data stored within the platform's databases.
+    - Authorized external parties can retrieve pertinent information through the API, contributing to insights generation.
     
-    🎗️ We are dedicated to raising awareness, providing resources, and offering guidance on cervical cancer prevention and screening.
-    
-    ### How CervicalShield Works
-    - CervicalShield utilizes advanced language models to understand your questions and provide accurate responses.
-    - It covers various topics related to cervical cancer, HPV, Pap smears, vaccination, and more.
-    
-    💡 Note: CervicalShield is not a substitute for professional medical advice. Please consult qualified healthcare professionals for specific concerns.
+
+    💡 Note: The  Bot is an integral component of Nayak, augmenting the platform's capabilities and enhancing user experience.
     ''')
     st.markdown('<style>div.stNamedPlaceholder>div{margin-top:20px;}</style>', unsafe_allow_html=True)
 
@@ -93,18 +104,18 @@ chat_history = []
 
 user_input = st.text_input("You: ")
 if user_input.lower() in exit_list:
-    st.write('Shielder: Chat with you later!')
+    st.write('Chat with you later!')
 else:
     greeting = handle_greeting(user_input)
     if greeting is not None:
-        st.write('Shielder: ' + greeting + '. How can I assist you today?')
-        chat_history.append(('User', user_input))
-        chat_history.append(('Bot', greeting + '. How can I assist you today?'))
+        st.write( greeting + '. How can I assist you today?')
+        chat_history.append(( user_input))
+        chat_history.append(( greeting + '. How can I assist you today?'))
     else:
         bot_resp = bot_response(user_input)
-        st.write('Shielder: ' + bot_resp)
-        chat_history.append(('User', user_input))
-        chat_history.append(('Bot', bot_resp))
+        st.write(bot_resp)
+        chat_history.append(( user_input))
+        chat_history.append(( bot_resp))
 
 # Display chat history
 st.write('')
